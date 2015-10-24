@@ -1,0 +1,7 @@
+import "common/header.proto";
+
+message Pong
+{
+  required common.Header header = 1;
+  required int64 timestamp = 2;
+}
