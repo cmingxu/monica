@@ -14,5 +14,10 @@ type Session struct {
 }
 
 func NewSession(c net.Conn) *Session {
-	return &Session{Conn: c}
+	return &Session{Conn: c,
+		ConnectedAt:       time.Now(),
+		LastPingAt:        time.Now(),
+		BytesTransfered:   0,
+		PackageTransfered: 0,
+	}
 }

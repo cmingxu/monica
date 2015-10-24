@@ -1,0 +1,19 @@
+package proto.common;
+
+message Header{
+  required int32 code = 1;
+}
+
+message Ping
+{
+  required Header header = 1;
+  required int64 timestamp = 2;
+}
+
+message Pong
+{
+  required Header header = 1;
+  required int64 timestamp = 2;
+}
+
+
