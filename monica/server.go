@@ -2,7 +2,7 @@ package monica
 
 import (
 	"fmt"
-	"github.com/cmingxu/monica/monica/proto/common"
+	"github.com/cmingxu/monica/protogos/common"
 	"github.com/golang/protobuf/proto"
 	"io"
 	"log"

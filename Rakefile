@@ -1,12 +1,14 @@
 task :gen do
-  proto_file_path = "proto"
-  proto_gen_go_path = "monica"
+  proto_file_path = "protobuf_defs"
+  proto_gen_go_path = "protogos"
 
-  Dir[proto_file_path + "/*.proto"].each do |p|
-    dest_dir = "#{proto_gen_go_path}/proto/#{File.basename(p, '.proto')}"
+  Dir.chdir "protobuf_defs"
+  Dir["*.proto"].each do |p|
+    dest_dir = File.expand_path("../#{proto_gen_go_path}/#{File.basename(p, '.proto')}")
     FileUtils.mkdir_p dest_dir
-
-    `protoc --go_out=#{proto_gen_go_path}/proto/#{File.basename(p, '.proto')} --proto_path=proto/  --proto_path=proto #{p}`
+    puts "protoc --go_out=../#{proto_gen_go_path}/#{File.basename(p, '.proto')}/ #{p}"
+    `protoc --go_out=../#{proto_gen_go_path}/#{File.basename(p, '.proto')}/ #{p}`
   end
+  Dir.chdir ".."
 end
 
