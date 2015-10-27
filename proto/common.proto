@@ -1,4 +1,4 @@
-package proto.common;
+package common;
 
 message Header{
   required int32 code = 1;

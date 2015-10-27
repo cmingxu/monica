@@ -2,7 +2,7 @@ package monica
 
 import (
 	"fmt"
-	"github.com/cmingxu/monica/common"
+	"github.com/cmingxu/monica/monica/proto/common"
 	"github.com/golang/protobuf/proto"
 	"io"
 	"log"
@@ -87,7 +87,11 @@ func handleClientConn(session *Session) {
 			break
 		}
 
-		ping := &common.Ping{}
+		ping := &common.Ping{
+			Timestamp: proto.Int64(1),
+			Header:    &common.Header{Code: proto.Int32(2)},
+		}
+
 		fmt.Printf("%d\n", ByteRead)
 	}
 }
