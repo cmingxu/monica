@@ -12,6 +12,7 @@ It has these top-level messages:
 	Header
 	Ping
 	Pong
+	GdsSync
 */
 package common
 
@@ -86,4 +87,36 @@ func (m *Pong) GetTimestamp() int64 {
 		return *m.Timestamp
 	}
 	return 0
+}
+
+type GdsSync struct {
+	Header           *Header `protobuf:"bytes,1,req,name=header" json:"header,omitempty"`
+	Version          *string `protobuf:"bytes,2,req,name=version" json:"version,omitempty"`
+	What             *string `protobuf:"bytes,3,req,name=what" json:"what,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
+}
+
+func (m *GdsSync) Reset()         { *m = GdsSync{} }
+func (m *GdsSync) String() string { return proto.CompactTextString(m) }
+func (*GdsSync) ProtoMessage()    {}
+
+func (m *GdsSync) GetHeader() *Header {
+	if m != nil {
+		return m.Header
+	}
+	return nil
+}
+
+func (m *GdsSync) GetVersion() string {
+	if m != nil && m.Version != nil {
+		return *m.Version
+	}
+	return ""
+}
+
+func (m *GdsSync) GetWhat() string {
+	if m != nil && m.What != nil {
+		return *m.What
+	}
+	return ""
 }

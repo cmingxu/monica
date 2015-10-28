@@ -2,9 +2,6 @@ package monica
 
 import (
 	"fmt"
-	"github.com/cmingxu/monica/protogos/common"
-	"github.com/golang/protobuf/proto"
-	"io"
 	"log"
 	"net"
 )
@@ -72,26 +69,5 @@ func (s *MonicaServer) Start() *MonicaServer {
 }
 
 func handleClientConn(session *Session) {
-	buf := make([]byte, 4096)
-	log.Printf("start reading from %s\n", session.Conn.RemoteAddr().String())
-
-	for {
-		ByteRead, err := session.Conn.Read(buf)
-		if err != nil {
-			if err == io.EOF {
-				log.Println("client exiting")
-			} else {
-				log.Fatalf("client reading error")
-			}
-
-			break
-		}
-
-		ping := &common.Ping{
-			Timestamp: proto.Int64(1),
-			Header:    &common.Header{Code: proto.Int32(2)},
-		}
-
-		fmt.Printf("%d\n", ByteRead)
-	}
+	session.Loop()
 }

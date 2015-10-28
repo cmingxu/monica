@@ -16,4 +16,10 @@ message Pong
   required int64 timestamp = 2;
 }
 
+message GdsSync
+{
+  required Header header = 1;
+  required string version = 2;
+  required string what = 3;
+}
 

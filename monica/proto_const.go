@@ -7,4 +7,5 @@ const (
 	ProtoPong
 	ProtoHeartBeat
 	ProtoHeartBeatRespons
+	GdsSync
 )

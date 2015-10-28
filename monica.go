@@ -5,7 +5,6 @@ import (
 	"flag"
 	"fmt"
 	"github.com/cmingxu/monica/monica"
-	"github.com/cmingxu/monica/protogos/common"
 	"log"
 	"os"
 	"path/filepath"
@@ -65,7 +64,6 @@ func InitConfig() {
 			default:
 			}
 		}
-
 	}
 }
 

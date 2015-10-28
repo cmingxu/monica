@@ -1,0 +1,13 @@
+package gds;
+
+message Building{
+  required string name = 1;
+  required uint32 level = 2;
+  required string icon = 3;
+  required string model = 4;
+  required string texture = 5;
+}
+
+message BuildingGds{
+  repeated Building buildins = 1;
+}
