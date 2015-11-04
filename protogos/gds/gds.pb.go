@@ -72,7 +72,7 @@ func (m *Building) GetTexture() string {
 }
 
 type BuildingGds struct {
-	Buildins         []*Building `protobuf:"bytes,1,rep,name=buildins" json:"buildins,omitempty"`
+	Buildings        []*Building `protobuf:"bytes,1,rep,name=buildings" json:"buildings,omitempty"`
 	XXX_unrecognized []byte      `json:"-"`
 }
 
@@ -80,9 +80,9 @@ func (m *BuildingGds) Reset()         { *m = BuildingGds{} }
 func (m *BuildingGds) String() string { return proto.CompactTextString(m) }
 func (*BuildingGds) ProtoMessage()    {}
 
-func (m *BuildingGds) GetBuildins() []*Building {
+func (m *BuildingGds) GetBuildings() []*Building {
 	if m != nil {
-		return m.Buildins
+		return m.Buildings
 	}
 	return nil
 }

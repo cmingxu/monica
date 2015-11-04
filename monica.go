@@ -65,6 +65,7 @@ func InitConfig() {
 			}
 		}
 	}
+	config.GdsPath = fmt.Sprintf("%s/%s", getwd(), "/gds")
 }
 
 func InitLog() {

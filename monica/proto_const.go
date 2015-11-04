@@ -7,5 +7,6 @@ const (
 	ProtoPong
 	ProtoHeartBeat
 	ProtoHeartBeatRespons
-	GdsSync
+	ProtoGdsSync
+	ProtoBuildingsGds
 )

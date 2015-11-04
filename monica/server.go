@@ -60,6 +60,7 @@ func (s *MonicaServer) Start() *MonicaServer {
 
 		// package tcp connection into sessions and added to servers client's list
 		clientSession := NewSession(clientConn)
+		clientSession.Server = s
 		s.ClientSessions = append(s.ClientSessions, clientSession)
 
 		// handle client conenctions here

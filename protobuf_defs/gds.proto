@@ -9,5 +9,5 @@ message Building{
 }
 
 message BuildingGds{
-  repeated Building buildins = 1;
+  repeated Building buildings = 1;
 }

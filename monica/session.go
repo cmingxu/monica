@@ -3,7 +3,6 @@ package monica
 import (
 	"bytes"
 	"encoding/binary"
-	"github.com/cmingxu/monica/cmd_handler"
 	"github.com/cmingxu/monica/protogos/common"
 	"github.com/golang/protobuf/proto"
 	"io"
@@ -19,6 +18,7 @@ type Session struct {
 	ConnectedAt       time.Time
 	LastPingAt        time.Time
 	PingInterval      time.Duration
+	Server            *MonicaServer
 }
 
 func NewSession(c net.Conn) *Session {
@@ -27,7 +27,7 @@ func NewSession(c net.Conn) *Session {
 		LastPingAt:        time.Now(),
 		BytesTransfered:   0,
 		PackageTransfered: 0,
-		PingInterval:      1 * time.Second,
+		PingInterval:      10 * time.Second,
 	}
 }
 
@@ -57,8 +57,9 @@ func (s *Session) Loop() {
 
 		switch protoType {
 		case ProtoPing:
-		case GdsSync:
-			go cmd_handler.NewHandler(s).HandlePackage(buf[8:ByteRead])
+		case ProtoGdsSync:
+			log.Println("xxx ProtoGdsSync received")
+			go NewGdsSyncHandler(s).HandlePackage(buf[8:ByteRead])
 		}
 	}
 }
@@ -84,10 +85,11 @@ func (s *Session) AsyncLoop() {
 		select {
 		case <-ticker.C:
 			ping := &common.Ping{
-				Timestamp: proto.Int64(1),
+				Timestamp: proto.Int64(time.Now().Unix()),
 				Header:    &common.Header{Code: proto.Int32(2)},
 			}
 			bytes, _ := proto.Marshal(ping)
+			log.Println("pinging")
 			s.WriteToClient(ProtoPing, bytes)
 		}
 	}

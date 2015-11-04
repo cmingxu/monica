@@ -13,6 +13,7 @@ type MonicaConfig struct {
 	Log      *log.Logger
 	LogLevel int
 	LogPath  string
+	GdsPath  string
 }
 
 func (s *MonicaConfig) ToString() string {
