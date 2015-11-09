@@ -3,3 +3,5 @@ host=
 log_path=tmp/log
 log_level=1
 env=dev
+mysqlschema=root:@tcp(localhost:3306)/bellucci_development
+redisschema=localhost:6379

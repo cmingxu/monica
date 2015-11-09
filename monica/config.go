@@ -10,10 +10,12 @@ type MonicaConfig struct {
 	Host string
 	Env  string
 
-	Log      *log.Logger
-	LogLevel int
-	LogPath  string
-	GdsPath  string
+	Log         *log.Logger
+	LogLevel    int
+	LogPath     string
+	GdsPath     string
+	MysqlSchema string
+	RedisSchema string
 }
 
 func (s *MonicaConfig) ToString() string {

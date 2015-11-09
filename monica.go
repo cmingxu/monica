@@ -14,6 +14,7 @@ import (
 
 var config = new(monica.MonicaConfig)
 var configFilePath string
+var Server *monica.MonicaServer
 
 func main() {
 	SetParseFlag()
@@ -26,8 +27,8 @@ func Initialization() {
 	InitConfig()
 	InitLog()
 
-	server := new(monica.MonicaServer)
-	server.Init(config).Start()
+	Server = new(monica.MonicaServer)
+	Server.Init(config).Start()
 }
 
 func InitConfig() {
@@ -55,6 +56,10 @@ func InitConfig() {
 				config.LogLevel, _ = strconv.Atoi(value)
 			case "env":
 				config.Env = value
+			case "mysqlschema":
+				config.MysqlSchema = value
+			case "redisschema":
+				config.RedisSchema = value
 			case "log_path":
 				if strings.HasPrefix(value, "/") {
 					config.LogPath = value
@@ -78,7 +83,6 @@ func InitLog() {
 	} else {
 		config.Log = log.New(logfile, "", log.Lshortfile)
 	}
-
 }
 
 func SetParseFlag() {

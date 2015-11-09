@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  height: 1
+  weight: 1
+  center_x: 1
+  center_y: 1
+  is_home: false
+
+two:
+  name: MyString
+  height: 1
+  weight: 1
+  center_x: 1
+  center_y: 1
+  is_home: false

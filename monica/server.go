@@ -23,6 +23,8 @@ type MonicaServer struct {
 	Config         *MonicaConfig // game server config
 	State          ServerState   // current state of the game server
 	ClientSessions Sessions      // list of client connections
+	MySQL          *MonicaMySQL
+	Redis          *MonicaRedis
 }
 
 // Game server initialization
@@ -50,6 +52,12 @@ func (s *MonicaServer) Start() *MonicaServer {
 		log.Panic(err)
 	}
 
+	// mysql connection here
+	s.MySQL = NewMonicaMySQL(s)
+
+	// redis connection local server
+	s.Redis = NewRedisClient(s)
+
 	for {
 		// accpeting new connections
 		clientConn, err := listener.Accept()
@@ -66,6 +74,7 @@ func (s *MonicaServer) Start() *MonicaServer {
 		// handle client conenctions here
 		go handleClientConn(clientSession)
 	}
+
 	return s
 }
 
