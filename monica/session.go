@@ -3,6 +3,7 @@ package monica
 import (
 	"bytes"
 	"encoding/binary"
+	"fmt"
 	"github.com/cmingxu/monica/protogos/common"
 	"github.com/golang/protobuf/proto"
 	"io"
@@ -34,7 +35,7 @@ func NewSession(c net.Conn) *Session {
 func (s *Session) Loop() {
 	buf := make([]byte, 4096)
 	log.Printf("start reading from %s\n", s.Conn.RemoteAddr().String())
-	go s.AsyncLoop()
+	//go s.AsyncLoop()
 	for {
 		ByteRead, err := s.Conn.Read(buf)
 		if err != nil {
@@ -43,7 +44,6 @@ func (s *Session) Loop() {
 			} else {
 				log.Fatalf("client reading error")
 			}
-
 			break
 		}
 		var size uint32
@@ -57,7 +57,9 @@ func (s *Session) Loop() {
 
 		switch protoType {
 		case ProtoPing:
+			go NewPingHandler(s).HandlePackage(buf[8:ByteRead])
 		case ProtoGdsSync:
+			fmt.Println("Got ProtoGdsSync from Client")
 			log.Println("xxx ProtoGdsSync received")
 			go NewGdsSyncHandler(s).HandlePackage(buf[8:ByteRead])
 		}
