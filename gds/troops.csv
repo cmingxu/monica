@@ -1,0 +1,10 @@
+name,unit_size,training_time,movement_speed,attach_range,attach_speed,headerquarters_level_required
+rifleman,1,60,moderate/220,medium/4.7,1,1
+heavy,4,360,moderate/230,short/3.3-7,0.1,2
+zooka,240,slow/180,long/7.2,2,5
+warrier,3,180,fast/300,melee/0.9,1,8
+tank,8,1440,slwo/150,long/8.2,3.5,11
+medic,5,600,moderate/270,short/4-8,1,Splash,15
+grenadier,6,900,moderate/250,very long/11.3,2,2,16
+scorcher,21,3000,moderate/230,medium/3.3-7,0.5,3,18
+

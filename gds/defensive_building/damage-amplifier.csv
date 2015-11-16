@@ -1,0 +1,13 @@
+level,hitpoints,damage_boost,prototype_materials,build_time,weapon_lab_required
+1,15,000,50%,0  
+0  
+4  
+0,1h,1
+2,20,000,75%,8  
+4  
+0  
+0,4h,3
+3,25,000,100%,0  
+8  
+4  
+12,12h,5

@@ -1,0 +1,12 @@
+level,hitpoints,wood,stone,iron,upgrade_time,hq_level_required
+1,2,000,1,610,000,1,230,000,450,000,1d 6h,15
+2,2,600,2,280,000,2,040,000,890,000,1d 10h,16
+3,3,300,3,200,000,2,660,000,1,690,000,1h 14h,17
+4,4,100,3,900,000,3,600,000,2,360,000,1d 18h,18
+5,5,000,4,900,000,4,900,000,4,900,000,2d 12h,19
+Lab Level,Shock Blaster,Lazor Beam,Doom Cannon,Damage Amplifier
+1,I,I,I,I
+2,II,II,I,I
+3,II,II,II,II
+4,III,III,II,II
+5,III,III,III,III
