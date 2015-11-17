@@ -1,0 +1,11 @@
+package common;
+
+message BuildingWeaponLab{
+  required uint32 level=1;
+  required uint32 hitpoints=2;
+  required uint32 wood=3;
+  required uint32 stone=4;
+  required uint32 iron=5;
+  required uint32 upgrade_time=6;
+  required uint32 hq_level_required=7;
+}

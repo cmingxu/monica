@@ -1,0 +1,11 @@
+package common;
+
+message UnitZooka{
+  required uint32 level=1;
+  required uint32 hitpoints=2;
+  required uint32 dps=3;
+  required uint32 trainign_cost=4;
+  required uint32 research_cost=5;
+  required uint32 research_time=6;
+  required uint32 armory_level_required=7;
+}

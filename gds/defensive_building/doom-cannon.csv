@@ -1,13 +1,4 @@
 level|hitpoints|dps|attack_speed|prototype_materials|build_time|weapon_lab_required
-1|15,000|1,500|5 sec|0  
-0  
-0  
-4|1h|1
-2|20,000|2,000|4 sec|0  
-8  
-4  
-0|4h|3
-3|25,000|3,000|3 sec|12  
-0  
-8  
-4|12h|5
+1|15,000|1,500|5||1h|1
+2|20,000|2,000|4||4h|3
+3|25,000|3,000|3||12h|5

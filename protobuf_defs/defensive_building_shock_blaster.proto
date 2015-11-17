@@ -1,0 +1,11 @@
+package common;
+
+message DefensiveBuildingRocketLauncher{
+  required uint32 level=1;
+  required uint32 hitpoints=2;
+  required uint32 dps=3;
+  required uint32 shock_duration=4;
+  required uint32 prototype_materials=5;
+  required uint32 build_time=6;
+  required uint32 weapon_lab_required=7;
+}
