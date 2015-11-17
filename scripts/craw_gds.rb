@@ -52,10 +52,10 @@ class Crawler
     table = p.css(".table-responsive")
     table.css("tr").each_with_index do |tr, index|
       if index.zero?
-        csv_content << tr.css("td").map {|td| normalize_header(td.text) }.join(",")
+        csv_content << tr.css("td").map {|td| normalize_header(td.text) }.join("|")
         csv_content << "\n"
       else
-        csv_content << tr.css("td").map {|td| td.text }.join(",")
+        csv_content << tr.css("td").map {|td| td.text }.join("|")
         csv_content << "\n"
       end
     end
